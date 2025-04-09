@@ -43,6 +43,12 @@ jobs:
         cp new_classes.dex temp/classes.dex
         cd temp && zip -r ../services_patched.jar *
 
+    - name: Upload patched file
+  uses: actions/upload-artifact@v3
+  with:
+    name: patched-services
+    path: output/services.jar
+
     - name: Upload hasil services_patched.jar
       uses: actions/upload-artifact@v3
       with:
