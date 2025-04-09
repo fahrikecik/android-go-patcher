@@ -17,23 +17,8 @@ jobs:
           wget https://github.com/JesusFreke/smali/releases/download/v2.5.2/baksmali-2.5.2.jar -O baksmali.jar
           wget https://github.com/JesusFreke/smali/releases/download/v2.5.2/smali-2.5.2.jar -O smali.jar
 
-      - name: Buat folder input/output/temp
-        run: mkdir -p input output temp smali
-
-      - name: Upload placeholder
-        run: echo "Silakan upload file services.jar ke folder input"
-
-      - name: Upload input file
-        uses: actions/upload-artifact@v3
-        with:
-          name: upload-services
-          path: input/
-
-      - name: Download input services.jar
-        uses: actions/download-artifact@v3
-        with:
-          name: upload-services
-          path: input/
+      - name: Buat folder output/temp/smali
+        run: mkdir -p output temp smali
 
       - name: Extract classes.dex dari services.jar
         run: |
